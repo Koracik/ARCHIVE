@@ -19,6 +19,8 @@
             }
             base.Dispose(disposing);
         }
+        
+           
 
         #region Windows Form Designer generated code
 
@@ -56,6 +58,9 @@
             button21 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             pictureBox1 = new PictureBox();
+            progressBar1 = new ProgressBar();
+            timer2 = new System.Windows.Forms.Timer(components);
+            timer3 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -164,13 +169,14 @@
             // 
             // button10
             // 
+            button10.BackColor = Color.Gainsboro;
             button10.Font = new Font("Arial Narrow", 21.75F, FontStyle.Regular, GraphicsUnit.Point);
             button10.Location = new Point(253, 102);
             button10.Name = "button10";
             button10.Size = new Size(75, 75);
             button10.TabIndex = 11;
             button10.Text = "1";
-            button10.UseVisualStyleBackColor = true;
+            button10.UseVisualStyleBackColor = false;
             button10.Click += button10_Click;
             // 
             // button11
@@ -353,12 +359,30 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(63, 498);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(485, 29);
+            progressBar1.TabIndex = 26;
+            // 
+            // timer2
+            // 
+            timer2.Interval = 1000;
+            timer2.Tick += timer2_Tick;
+            // 
+            // timer3
+            // 
+            timer3.Interval = 900;
+            timer3.Tick += timer3_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.AppWorkspace;
             ClientSize = new Size(588, 553);
+            Controls.Add(progressBar1);
             Controls.Add(pictureBox1);
             Controls.Add(button21);
             Controls.Add(button20);
@@ -420,5 +444,12 @@
         private System.Windows.Forms.Timer timer1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+
+
+        
+           
     }
 }

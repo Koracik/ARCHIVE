@@ -14,7 +14,11 @@ namespace Calc
             InitializeComponent();
         }
 
+        private bool game1_()
+        {
 
+            return true;
+        }
         List<string> simvol = new List<string>();
         List<int> numbers = new List<int>();
 
@@ -34,21 +38,22 @@ namespace Calc
             //1
             label1.Text += "1";
 
+
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
             // /
-            if (koren)
-            {
-                label1.Text += ")/";
-                koren = false;
+            /*  if (koren)
+              {
+                  label1.Text += ")/";
+                  koren = false;
 
-            }
-            else
-            {
-                label1.Text += "/";
-            }
+              }
+              else
+              {
+              }*/
+            label1.Text += "/";
         }
         bool реверс_на_минус = false;
         private void button14_Click(object sender, EventArgs e)
@@ -146,6 +151,7 @@ namespace Calc
             label1.Text += "6";
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
             //9
@@ -196,17 +202,148 @@ namespace Calc
              }
 
          }*/
-
+        /*  private bool game1_()
+          {
+              label1.Text = "";
+              button10.BackColor = Color.DarkOrange;
+              button21.BackColor = Color.DarkOrange;
+              button1.Enabled = false;
+              button2.Enabled = false;
+              //button3.Enabled = false;
+              button4.Enabled = false;
+              button5.Enabled = false;
+              button6.Enabled = false;
+              button7.Enabled = false;
+              button8.Enabled = false;
+              button9.Enabled = false;
+              button12.Enabled = false;
+              button11.Enabled = false;
+              button12.Enabled = false;
+              //button13.Enabled = false;
+              button14.Enabled = false;
+              button15.Enabled = false;
+              button16.Enabled = false;
+              button17.Enabled = false;
+              *//*button18.Enabled = false;*//*
+              //button19.Enabled = false;
+              button20.Enabled = false;
+              game1 = true;
+              return true;
+          }*/
+        bool dino;
+        bool game1 = false;
+        int count_bar = 0;
         private void button3_Click(object sender, EventArgs e)
         {
-            label2.BackColor = Color.Transparent;
-            label1.Text = label1.Text.Replace(',', '.');
-            if (label1.Text == "0/0")
+            if (label1.Text == "//")
+            {
+                label1.Text = "0";
+                game2();
+                progressBar1.Value = 0;
+                label1.Text = "0";
+            }
+
+            else if (label1.Text == "0/0")
             {
                 label2.Visible = true;
                 label2.ForeColor = Color.Black;
                 timer1.Enabled = true;
                 label1.Visible = false;
+
+                label1.Text = " ";
+            }
+            else if (label1.Text == "/")
+            {
+                button10.BackColor = Color.DarkOrange;
+                button21.BackColor = Color.DarkOrange;
+                button1.Enabled = false;
+                button2.Enabled = false;
+                //button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+                button6.Enabled = false;
+                button7.Enabled = false;
+                button8.Enabled = false;
+                button9.Enabled = false;
+                button12.Enabled = false;
+                button11.Enabled = false;
+                button12.Enabled = false;
+                //button13.Enabled = false;
+                button14.Enabled = false;
+                button15.Enabled = false;
+                button16.Enabled = false;
+                button17.Enabled = false;
+                /*button18.Enabled = false;*/
+                //button19.Enabled = false;
+                button20.Enabled = false;
+                game1 = true;
+
+            }
+
+           
+            if (game1 == true)
+            {
+                label1.Text = "0";
+                var dt = new DataTable();
+                var res = dt.Compute(label1.Text, null);
+                label1.Text = res.ToString();
+                if (int.Parse(label1.Text) > 100 && int.Parse(label1.Text) < 100000)
+                {
+                    label1.Text = "0";
+                }
+                if (int.Parse(label1.Text) >= 100)
+                {
+                    label1.Text = "100";
+                }
+                progressBar1.Value += int.Parse(label1.Text);
+                label1.Text = "";
+                if (progressBar1.Value >= 100)
+                {
+                    game1 = false;
+                }
+            }
+            if (label1.Text == "/" || label1.Text == "//")
+            {
+                label1.Text = "0";
+            }
+
+            if (game1 == false)
+            {
+                /*if (dino == true)
+                {*/
+                progressBar1.Enabled = false;
+                progressBar1.Value = 0;
+
+
+                button10.BackColor = Color.Gainsboro;
+                button21.BackColor = Color.PapayaWhip;
+                button1.Enabled = true;
+                button2.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+                button6.Enabled = true;
+                button7.Enabled = true;
+                button8.Enabled = true;
+                button9.Enabled = true;
+                button12.Enabled = true;
+                button11.Enabled = true;
+                button12.Enabled = true;
+                button13.Enabled = true;
+                button14.Enabled = true;
+                button15.Enabled = true;
+                button16.Enabled = true;
+                button17.Enabled = true;
+                button3.Enabled = true;
+                /*button18.Enabled = true;*/
+                button19.Enabled = true;
+                button20.Enabled = true;
+                label2.BackColor = Color.Transparent;
+                label1.Text = label1.Text.Replace(',', '.');
+
+                var dt = new DataTable();
+                var res = dt.Compute(label1.Text, null);
+                label1.Text = res.ToString();
+
 
                 //209; 20
                 /*for (int i = 0; i < 100; i++)
@@ -219,6 +356,7 @@ namespace Calc
                 // c = 20;
 
             }
+            dino = false;
             if (label1.Text == "666")
             {
                 MessageBox.Show("Иди в церковь умойся святой водой", "БОГАХУЛЬНИК!!!!!");
@@ -227,9 +365,7 @@ namespace Calc
             {
                 MessageBox.Show("Помощи не будет", "SOS");
             }
-            var dt = new DataTable();
-            var res = dt.Compute(label1.Text, null);
-            label1.Text = res.ToString();
+
 
 
             //var expr = new Expression(label1.Text);
@@ -334,7 +470,7 @@ namespace Calc
 
         }
         int c = 20;
-        async private void label2_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
 
@@ -381,6 +517,118 @@ namespace Calc
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        string _num;
+        Random r = new Random();
+        private void game2()
+        {
+            timer2.Enabled = true;
+        }
+
+        async private void timer2_Tick(object sender, EventArgs e)
+        {
+            int num = r.Next(0, 10);
+            _num = num.ToString();
+            switch (num)
+            {
+                case 0:
+                    button6.BackColor = Color.LightSalmon;
+                    break;
+                case 1:
+                    button10.BackColor = Color.LightSalmon;
+                    break;
+                case 2:
+                    button11.BackColor = Color.LightSalmon;
+                    break;
+                case 3:
+                    button12.BackColor = Color.LightSalmon;
+                    break;
+                case 4:
+                    button9.BackColor = Color.LightSalmon;
+                    break;
+                case 5:
+                    button4.BackColor = Color.LightSalmon;
+                    break;
+                case 6:
+                    button2.BackColor = Color.LightSalmon;
+                    break;
+                case 7:
+                    button8.BackColor = Color.LightSalmon;
+                    break;
+                case 8:
+                    button5.BackColor = Color.LightSalmon;
+                    break;
+                case 9:
+                    button1.BackColor = Color.LightSalmon;
+                    break;
+
+                default:
+                    break;
+            }
+            timer3.Enabled = true;
+
+            if (timer2.Interval > 750)
+            {
+             timer2.Interval -= 50;
+             timer3.Interval -= 50;
+            }
+
+            if (progressBar1.Value == 100)
+            {
+                timer2.Enabled = false;
+                progressBar1.Value = 0;
+                button6.BackColor = Color.Gainsboro;
+                button10.BackColor = Color.Gainsboro;
+                button12.BackColor = Color.Gainsboro;
+                button9.BackColor = Color.Gainsboro;
+                button4.BackColor = Color.Gainsboro;
+                button2.BackColor = Color.Gainsboro;
+                button8.BackColor = Color.Gainsboro;
+                button5.BackColor = Color.Gainsboro;
+                button1.BackColor = Color.Gainsboro;
+                button11.BackColor = Color.Gainsboro;
+            }
+        }
+        
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (label1.Text[label1.Text.Length - 1].ToString() == _num)
+            {
+                progressBar1.Value += 5;
+            }
+            else if(progressBar1.Value > 0)
+            {
+                progressBar1.Value -= 5;
+            }
+            button6.BackColor = Color.Gainsboro;
+            button10.BackColor = Color.Gainsboro;
+            button12.BackColor = Color.Gainsboro;
+            button9.BackColor = Color.Gainsboro;
+            button4.BackColor = Color.Gainsboro;
+            button2.BackColor = Color.Gainsboro;
+            button8.BackColor = Color.Gainsboro;
+            button5.BackColor = Color.Gainsboro;
+            button1.BackColor = Color.Gainsboro;
+            button11.BackColor = Color.Gainsboro;
+            timer3.Enabled = false;
+            label1.Text = "0";
         }
     }
 }
