@@ -250,7 +250,7 @@ namespace Calc
                 timer1.Enabled = true;
                 label1.Visible = false;
 
-                label1.Text = " ";
+                label1.Text = "0";
             }
             else if (label1.Text == "/")
             {
@@ -277,13 +277,13 @@ namespace Calc
                 //button19.Enabled = false;
                 button20.Enabled = false;
                 game1 = true;
+                label1.Text = "0";
 
             }
 
            
             if (game1 == true)
             {
-                label1.Text = "0";
                 var dt = new DataTable();
                 var res = dt.Compute(label1.Text, null);
                 label1.Text = res.ToString();
@@ -584,7 +584,7 @@ namespace Calc
             }
             timer3.Enabled = true;
 
-            if (timer2.Interval > 750)
+            if (timer2.Interval > 850)
             {
              timer2.Interval -= 50;
              timer3.Interval -= 50;
